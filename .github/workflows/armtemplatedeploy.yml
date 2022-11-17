@@ -21,4 +21,4 @@ jobs:
     - uses: azure/CLI@v1
       with:
         inlinescript: |
-          az deployment sub create --location "eastasia" --template-file ./template.json
+          az deployment sub create --location "eastasia" --template-file .github/workflows/template.json
