@@ -1,24 +1,25 @@
+name: armTemplateDeployment
 
-# File: .github/workflows/workflow.yml
-
-on: [push]
-
-name: AzureLoginSample
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
-
-  build-and-deploy:
+  armDeploy:
     runs-on: ubuntu-latest
-    steps:
 
-    
-    - uses: actions/checkout@v2
-    #- uses: azure/CLI@v1
-    - uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    
-    - uses: azure/cli@v1
-      with:
-        inlinescript: |
-          az deployment sub create --location "Australia East" --template-file ./arm-templates/resourcegroup.json
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: Azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy Resource Group rg-githubactions with AZ CLI
+        uses: Azure/cli@1.0.4
+        with:
+          inlinescript: |
+            az deployment sub create --location "Australia East" --template-file ./arm-templates/resourcegroup.json
