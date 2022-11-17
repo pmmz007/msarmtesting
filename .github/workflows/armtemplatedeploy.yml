@@ -1,27 +1,18 @@
-# This is a basic workflow to help you get started with Actions
+
+# File: .github/workflows/workflow.yml
+
+on: [push]
 
 name: armTemplateDeployment
 
-
-on:
-  
-  workflow_dispatch:
-
-
 jobs:
-  
-  armDeploy:
-   
+
+  armdeploy:
     runs-on: ubuntu-latest
-
- 
     steps:
-
-      - uses: actions/checkout@v3
-
-      - name: Sample Azure action
-        with: # Set Azure credentials secret as an input
-          credentials: ${{ secrets.AZURE_CREDENTIALS }}
     
-
-
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+   
