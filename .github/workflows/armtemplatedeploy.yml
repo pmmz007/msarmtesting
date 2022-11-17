@@ -32,7 +32,7 @@ jobs:
         with:
           scope: resourcegroup
           resourceGroupName: rg-githubactions
-          subscriptionId: 463b31bb9-de05-4402-9a7d-b530fd86c1af
+          subscriptionId: 63b31bb9-de05-4402-9a7d-b530fd86c1af
           template: ./arm-templates/template.json
           parameters: ./arm-templates/parameters.json
           deploymentMode: incremental
