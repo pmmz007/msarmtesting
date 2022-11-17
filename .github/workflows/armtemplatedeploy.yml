@@ -3,11 +3,11 @@
 
 on: [push]
 
-name: armTemplateDeployment
+name: AzureLoginSample
 
 jobs:
 
-  armdeploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
     
@@ -15,4 +15,5 @@ jobs:
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
-   
+    - run: |
+        az webapp list --query "[?state=='Running']"
