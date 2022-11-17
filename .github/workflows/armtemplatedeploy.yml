@@ -22,7 +22,7 @@ jobs:
         uses: Azure/cli@v1
         with:
           inlinescript: |
-            az deployment sub create  --location WestUS --template-file ./arm-templates/parameters.json
+            #az deployment sub create  --location WestUS --template-file ./arm-templates/parameters.json
             az deployment sub create  --location WestUS --template-file ./arm-templates/template.json
 
             
