@@ -36,3 +36,10 @@ jobs:
           template: ./arm-templates/template.json
           parameters: ./arm-templates/parameters.json
           deploymentMode: incremental
+      - name: Azure CLI script
+        uses: azure/cli@v1
+        with:
+          azcliversion: 2.30.0
+          inlineScript: |
+            az account show
+            az storage -h
